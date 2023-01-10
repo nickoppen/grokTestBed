@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "grokTestBed": {
+      "commandName": "Project",
+      "commandLineArgs": "./grokTestLongEOL.txt"
+    }
+  }
+}
