@@ -1,0 +1,1 @@
+%{LOGTIME:Timestamp} %{LOGPROG:Prog}: %{LOGACTION:Action} %{LOGDOMAIN:Domain} %{LOGDIRECTION:Direction} %{LOGEOL:EndOfLine}

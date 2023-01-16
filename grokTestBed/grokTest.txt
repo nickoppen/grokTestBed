@@ -1,0 +1,117 @@
+Dec 29 13:52:43 dnsmasq[25433]: query[SVCB] _dns.resolver.arpa from 192.168.1.139
+Dec 29 14:00:01 dnsmasq[25433]: cached 203.12.160.36 is dns2.tpgi.com.au
+Dec 29 14:18:00 dnsmasq[25433]: query[SVCB] _dns.resolver.arpa from 192.168.1.114
+Dec 29 14:19:38 dnsmasq[25433]: reply error is SERVFAIL
+Dec 16 07:25:30 dnsmasq[29581]: query[AAAA] 1.debian.pool.ntp.org from 192.168.1.144
+Dec 16 07:25:30 dnsmasq[29581]: forwarded 1.debian.pool.ntp.org to 203.12.160.35
+Dec 16 07:25:30 dnsmasq[29581]: reply 1.debian.pool.ntp.org is 203.57.51.100
+Dec 16 07:25:30 dnsmasq[29581]: query[A] www.google.com from 192.168.1.104
+Dec 16 07:25:30 dnsmasq[29581]: forwarded www.google.com to 203.12.160.35
+Dec 16 07:25:30 dnsmasq[29581]: forwarded www.google.com to 203.12.160.36
+Dec 16 07:25:30 dnsmasq[29581]: reply www.google.com is 172.217.167.68
+Dec 16 07:25:30 dnsmasq[29581]: query[A] prodssl.solaredge.com from 192.168.1.123
+Dec 16 07:25:30 dnsmasq[29581]: query[AAAA] prodssl.solaredge.com from 192.168.1.123
+Dec 16 07:25:30 dnsmasq[29581]: forwarded prodssl.solaredge.com to 203.12.160.35
+Dec 16 07:25:30 dnsmasq[29581]: reply prodssl.solaredge.com is 80.239.175.47
+Dec 16 07:25:30 dnsmasq[29581]: query[A] d3p8zr0ffa9t17.cloudfront.net from 192.168.1.139
+Dec 16 07:25:30 dnsmasq[29581]: forwarded d3p8zr0ffa9t17.cloudfront.net to 203.12.160.35
+Dec 16 07:25:30 dnsmasq[29581]: reply d3p8zr0ffa9t17.cloudfront.net is 18.67.108.111
+Dec 16 07:25:30 dnsmasq[29581]: query[A] spoc.norton.com from 192.168.1.137
+Dec 16 07:25:30 dnsmasq[29581]: forwarded spoc.norton.com to 203.12.160.35
+Dec 16 07:25:30 dnsmasq[29581]: forwarded spoc.norton.com to 203.12.160.36
+Dec 16 07:25:30 dnsmasq[29581]: reply spoc.norton.com is <CNAME>
+Dec 16 07:25:31 dnsmasq[29581]: query[AAAA] api.amazon.com from 192.168.1.139
+Dec 16 07:25:31 dnsmasq[29581]: forwarded api.amazon.com to 203.12.160.35
+Dec 16 07:25:31 dnsmasq[29581]: forwarded api.amazon.com to 203.12.160.36
+Dec 16 07:25:31 dnsmasq[29581]: reply api.amazon.com is NODATA-IPv6
+Dec 16 07:25:31 dnsmasq[29581]: query[HTTPS] play.google.com from 192.168.1.102
+Dec 16 07:25:31 dnsmasq[29581]: forwarded play.google.com to 203.12.160.35
+Dec 16 07:25:31 dnsmasq[29581]: reply play.google.com is NODATA
+Dec 16 07:25:31 dnsmasq[29581]: query[HTTPS] www.google.com from 192.168.1.102
+Dec 16 07:25:31 dnsmasq[29581]: forwarded www.google.com to 203.12.160.35
+Dec 16 07:25:31 dnsmasq[29581]: reply www.google.com is <HTTPS>
+Dec 16 07:25:33 dnsmasq[29581]: query[AAAA] tnx.nl from 192.168.1.119
+Dec 16 07:25:33 dnsmasq[29581]: forwarded tnx.nl to 203.12.160.35
+Dec 16 07:25:33 dnsmasq[29581]: reply tnx.nl is 2a02:2308:10::c:19
+
+Dec 16 07:25:35 dnsmasq[29581]: query[A] v-h.tv from 192.168.1.102
+Dec 16 07:25:35 dnsmasq[29581]: forwarded v-h.tv to 203.12.160.35
+Dec 16 07:25:35 dnsmasq[29581]: query[HTTPS] v-h.tv from 192.168.1.102
+Dec 16 07:25:35 dnsmasq[29581]: forwarded v-h.tv to 203.12.160.35
+Dec 16 07:25:35 dnsmasq[29581]: reply static.voyeur-house.tv is NODATA
+Dec 16 07:25:35 dnsmasq[29581]: reply v-h.tv is <HTTPS>
+Dec 16 07:31:13 dnsmasq[29581]: query[A] 192-168-1-122.tpgi.com.au from 192.168.1.102
+Dec 16 07:31:13 dnsmasq[29581]: forwarded 192-168-1-122.tpgi.com.au to 203.12.160.35
+Dec 16 07:31:13 dnsmasq[29581]: reply 192-168-1-122.tpgi.com.au is NXDOMAIN
+Dec 16 07:31:27 dnsmasq[29581]: query[A] www.msftconnecttest.com from 192.168.1.102
+Dec 16 07:31:27 dnsmasq[29581]: forwarded www.msftconnecttest.com to 203.12.160.35
+Dec 16 07:31:27 dnsmasq[29581]: query[A] ipv6.msftconnecttest.com from 192.168.1.102
+Dec 16 07:31:27 dnsmasq[29581]: forwarded ipv6.msftconnecttest.com to 203.12.160.35
+Dec 16 07:31:27 dnsmasq[29581]: reply www.msftconnecttest.com is <CNAME>
+Dec 16 07:31:27 dnsmasq[29581]: reply ncsi-geo.trafficmanager.net is <CNAME>
+Dec 16 07:31:27 dnsmasq[29581]: reply v4ncsi.msedge.net is <CNAME>
+Dec 16 07:31:27 dnsmasq[29581]: reply ncsi.4-c-0003.c-msedge.net is <CNAME>
+Dec 16 07:31:27 dnsmasq[29581]: reply 4-c-0003.c-msedge.net is 13.107.4.52
+Dec 16 07:31:27 dnsmasq[29581]: reply ipv6.msftconnecttest.com is <CNAME>
+Dec 16 07:31:27 dnsmasq[29581]: reply v6ncsi.msedge.net is <CNAME>
+Dec 16 07:31:27 dnsmasq[29581]: reply ncsi.6-c-0003.c-msedge.net is <CNAME>
+Dec 16 07:31:27 dnsmasq[29581]: reply 6-c-0003.c-msedge.net is NODATA-IPv4
+Dec 16 07:32:35 dnsmasq[29581]: query[SRV] _sips._tcp.au.vodafone.rcs.telephony.goog from 192.168.1.137
+Dec 16 07:32:35 dnsmasq[29581]: forwarded _sips._tcp.au.vodafone.rcs.telephony.goog to 203.12.160.35
+Dec 16 07:32:36 dnsmasq[29581]: reply _sips._tcp.au.vodafone.rcs.telephony.goog is <SRV>
+Dec 16 07:33:13 dnsmasq[6837]: query[AAAA] dns.msftncsi.com from 192.168.1.102
+Dec 16 07:33:13 dnsmasq[6837]: cached dns.msftncsi.com is fd3e:4f5a:5b81::1
+Dec 16 09:34:05 dnsmasq[29581]: query[NAPTR] au.vodafone.rcs.telephony.goog from 192.168.1.137
+Dec 16 09:34:05 dnsmasq[29581]: forwarded au.vodafone.rcs.telephony.goog to 203.12.160.35
+Dec 16 09:34:05 dnsmasq[29581]: reply au.vodafone.rcs.telephony.goog is <NAPTR>
+Dec 16 09:46:13 dnsmasq[29581]: query[PTR] 122.1.168.192.in-addr.arpa from 192.168.1.102
+Dec 16 09:46:13 dnsmasq[29581]: config 192.168.1.122 is NXDOMAIN
+Dec 16 09:49:27 dnsmasq[29581]: query[HTTPS] ents.mnc003.mcc505.pub.3gppnetwork.org from 192.168.1.135
+Dec 16 09:49:27 dnsmasq[29581]: regex blacklisted ents.mnc003.mcc505.pub.3gppnetwork.org is NODATA
+Dec 16 09:49:27 dnsmasq[29581]: query[A] ents.mnc003.mcc505.pub.3gppnetwork.org from 192.168.1.135
+Dec 16 09:49:27 dnsmasq[29581]: regex blacklisted ents.mnc003.mcc505.pub.3gppnetwork.org is 0.0.0.0
+Dec 16 20:35:52 dnsmasq[29581]: query[A] meetings.googleapis.com from 192.168.1.136
+Dec 16 20:35:52 dnsmasq[29581]: exactly blacklisted meetings.googleapis.com is 0.0.0.0
+Dec 16 20:35:52 dnsmasq[29581]: query[AAAA] meetings.googleapis.com from 192.168.1.136
+Dec 16 20:35:52 dnsmasq[29581]: exactly blacklisted meetings.googleapis.com is ::
+Dec 16 20:37:17 dnsmasq[29581]: query[HTTPS] mask.icloud.com from 192.168.1.136
+Dec 16 20:37:17 dnsmasq[29581]: special domain mask.icloud.com is NXDOMAIN
+Dec 16 20:38:03 dnsmasq[29581]: query[HTTPS] www.google-analytics.com from 192.168.1.136
+Dec 16 20:38:03 dnsmasq[29581]: gravity blocked www.google-analytics.com is NODATA
+Dec 16 20:38:03 dnsmasq[29581]: query[A] www.google-analytics.com from 192.168.1.136
+Dec 16 20:38:03 dnsmasq[29581]: gravity blocked www.google-analytics.com is 0.0.0.0
+Dec 16 23:17:25 dnsmasq[19785]: query[TXT] geoclue.smaato.net from 192.168.1.135
+Dec 16 23:17:25 dnsmasq[19785]: gravity blocked geoclue.smaato.net is NODATA
+Dec 16 23:17:25 dnsmasq[19785]: query[HTTPS] web.facebook.com from 192.168.1.135
+Dec 16 23:17:25 dnsmasq[19785]: gravity blocked web.facebook.com is NODATA
+Dec 16 23:17:25 dnsmasq[19785]: query[A] web.facebook.com from 192.168.1.135
+Dec 16 23:17:25 dnsmasq[19785]: gravity blocked web.facebook.com is 0.0.0.0
+Dec 22 23:29:59 dnsmasq[23840]: query[SOA] local from 192.168.1.131
+Dec 22 23:29:59 dnsmasq[23840]: forwarded local to 203.12.160.35
+Dec 22 23:29:59 dnsmasq[23840]: query[SVCB] _dns.resolver.arpa from 192.168.1.131
+Dec 22 23:29:59 dnsmasq[23840]: forwarded _dns.resolver.arpa to 203.12.160.35
+Dec 22 23:29:59 dnsmasq[23840]: reply local is NXDOMAIN
+Dec 22 23:29:59 dnsmasq[23840]: reply _dns.resolver.arpa is NXDOMAIN
+Dec 28 17:50:54 dnsmasq[28097]: reply k2._domainkey.fbl.mcsv.net is v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8Vz6aLSzUZK4XVBTqDZ6aNf/AILwj782HJ3Isf+qMHi/s07cMlTOG/AOXHXYSXtwiqlkLt/ipaB3LB7UTjFBjhrLj44OJeVS+J9RFke4VXUf6Z9p+/8znDEs54H0FIz6JoSOWzfz43Re/02vR89I/Db1TAesdtsBmMZFVyWr45fLSj6GiCPjoEQq5jCyWd4S
+Dec 28 17:50:54 dnsmasq[28097]: reply k2._domainkey.fbl.mcsv.net is z1SwxNectf0V0utzuxjuV33DIPumdWOGhsfPvVAosIU7x6trgyhKBZWtBQG3ARpF8a/ZQ+MWIl87T0aTOcNKl45uLO6Gq1AM6MBLko0NUwBB9WtEyx4HILvret/dDV3wZJAxSgEkm0z1upNtLQd7wIDAQAB;
+Dec 29 08:51:20 dnsmasq[25433]: reply 1000073432._domainkey.auth.ccsend.com is k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPQbUA/GI9q/nSI59sTfgzf8ZFlgdOKZ8IPOmPEUhgbAeqgv02OMiH4WEV5sOXURfUdD+CJ4usxumlo7
+Dec 29 08:51:20 dnsmasq[25433]: reply 1000073432._domainkey.auth.ccsend.com is tseSr3Zvpr98XjDjGnaA4NTG4iRmk7cedcYvv2fbU4iXACS6YI08suYiOuB5ITTi8LTrHHr/tnTia8se7AO+w3b2KvmQIDAQAB
+Dec 26 20:39:09 dnsmasq[6309]: reply 200608._domainkey.email.myerone.com.au is v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGoQCNwAQdJBy23MrShs1EuHqK/dtDC33QrTqgWd9CJmtM3CK2ZiTYugkhcxnkEtGbzg+IJqcDRNkZHyoRezTf6QbinBB2dbyANEuwKI5DVRBFowQOj9zvM3IvxAEboMlb0szUjAoML94HOkKuGuCkdZ1gbVEi3GcVwrIQphal1QIDAQAB
+Dec 21 19:36:58 dnsmasq[6664]: reply 1000073432._domainkey.auth.ccsend.com is tseSr3Zvpr98XjDjGnaA4NTG4iRmk7cedcYvv2fbU4iXACS6YI08suYiOuB5ITTi8LTrHHr/tnTia8se7AO+w3b2KvmQIDAQAB
+Dec 21 17:41:27 dnsmasq[6664]: reply 1000073432._domainkey.auth.ccsend.com is k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPQbUA/GI9q/nSI59sTfgzf8ZFlgdOKZ8IPOmPEUhgbAeqgv02OMiH4WEV5sOXURfUdD+CJ4usxumlo7
+Dec 21 17:41:27 dnsmasq[6664]: reply 1000073432._domainkey.auth.ccsend.com is tseSr3Zvpr98XjDjGnaA4NTG4iRmk7cedcYvv2fbU4iXACS6YI08suYiOuB5ITTi8LTrHHr/tnTia8se7AO+w3b2KvmQIDAQAB
+Dec 20 09:08:21 dnsmasq[8295]: config error is REFUSED (EDE: blocked)
+Dec 20 09:08:21 dnsmasq[8295]: Rate-limiting yt3.ggpht.com is REFUSED (EDE: blocked)
+Dec 20 00:15:38 dnsmasq[8295]: Apple iCloud Private Relay domain mask-h2.icloud.com is NXDOMAIN
+
+Jan  2 14:57:07 dnsmasq[2225]: reply 12dkim1._domainkey.s12.exacttarget.com is pYo2EMFJLFsqBdvsawaHgXvD95MqjfcpYtDQhFaHGulNZrS5oSwhqTLT1xkS
+Jan  2 14:57:07 dnsmasq[2225]: reply 12dkim1._domainkey.s12.exacttarget.com is BQbE7ZHw4s5nBb5wtv71asJr0wlrV/cS8dwZTu6xZ9DZEGMYe4Dj7vppXDFZ
+Jan  2 14:57:07 dnsmasq[2225]: reply 12dkim1._domainkey.s12.exacttarget.com is YYcEimL7PblaelRfehcB7UWqfuIgQHSvd8HRdrw5BBLn+4iY8+5Sx9SmRHX3
+Jan  2 14:57:07 dnsmasq[2225]: reply 12dkim1._domainkey.s12.exacttarget.com is vztyL0HEUt7sCwnqYfZ7cFqDO/6k9fhvxmyLdI+eTtXs3k03ZN9pwgSI0sA6
+Jan  2 14:57:07 dnsmasq[2225]: reply 12dkim1._domainkey.s12.exacttarget.com is Hc3XpLUlYne1MJrQwRG1CQ0VNEvNpwfGzJ7+ksvWcUyOdaRSXeyeEdChTSCf
+Jan  2 14:57:07 dnsmasq[2225]: reply 12dkim1._domainkey.s12.exacttarget.com is iVUaVfWXFUcUFcjaDyYcYK5L+wIDAQAB
+
+Jan 10 08:51:00 dnsmasq[20709]: query[A] api.us-west-2.aiv-delivery.net from 192.168.1.128
+Jan 10 08:51:00 dnsmasq[20709]: forwarded api.us-west-2.aiv-delivery.net to 203.12.160.35
+Jan 10 08:51:00 dnsmasq[20709]: reply api.us-west-2.aiv-delivery.net is <CNAME>
+Jan 10 08:51:00 dnsmasq[20709]: reply global.telemetry.insights.video.a2z.com is blocked during CNAME inspection
