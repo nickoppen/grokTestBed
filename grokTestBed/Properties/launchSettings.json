@@ -2,7 +2,7 @@
   "profiles": {
     "grokTestBed": {
       "commandName": "Project",
-      "commandLineArgs": "./grokTestLongEOL.txt"
+      "commandLineArgs": "-v0"
     }
   }
 }
