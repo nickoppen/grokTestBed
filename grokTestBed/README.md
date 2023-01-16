@@ -1,10 +1,10 @@
 ﻿
 Switches now control input files and the output destination:
 
--f <dataFile> (default: ./grokTest)
--p <top level pattern file> (default: ./matchPattern.txt)
--c <custom pattern file> (default: ./grokCustom.txt)
--o <output file> (default: ./outputFile.txt)
+-f \<dataFile\> (default: ./grokTest)
+-p \<top level pattern file\> (default: ./matchPattern.txt)
+-c \<custom pattern file\> (default: ./grokCustom.txt)
+-o \<output file\> (default: ./outputFile.txt)
 
 Verbosity to the Console can be controlled using the -vx switch:
 -v0: output goes to the output file only
