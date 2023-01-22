@@ -1,34 +1,32 @@
 ﻿using GrokNet;
 using Microsoft.VisualBasic;
+using System;
 using System.Collections;
 using System.Diagnostics;
 using System.Globalization;
+using System.Xml.Linq;
 
 class Program
 {
-    private struct patternName
-    {
-        public string pattern;
-        public string name;
-        public int index;
-    }
     private struct cliArgs
     {
         public string customPatternFile;
         public string patternFile;
         public string dataFile;
         public string outputFile;
+        public long maxExecutionTimeInTicks;
         public int verbosity;
     }
 
     private cliArgs readCliArgs(string[] strArgs)
     {
-        cliArgs result = new cliArgs
+        var result = new cliArgs
         {
             customPatternFile = @"./grokCustom.txt",
             patternFile= @"./matchPattern.txt",
             dataFile= @"./grokTest.txt",
             outputFile = @"./outputFile.txt",
+            maxExecutionTimeInTicks = 10000000,     // one second
             verbosity = 2
         };
 
@@ -37,16 +35,19 @@ class Program
             switch (strArgs[i])
             {
                 case "-p":
-                    result.customPatternFile = strArgs[++i];
+                    result.patternFile = strArgs[++i];
                     break;
                 case "-f":
                     result.dataFile = strArgs[++i];
                     break;
                 case "-c":
-                    result.customPatternFile += strArgs[++i];
+                    result.customPatternFile = strArgs[++i];
                     break;
                 case "-o":
-                    result.outputFile += strArgs[++i];
+                    result.outputFile = strArgs[++i];
+                    break;
+                case "-t":
+                    result.maxExecutionTimeInTicks = long.Parse(strArgs[++i]);
                     break;
                 case "-v0":
                     result.verbosity = 0;
@@ -63,23 +64,57 @@ class Program
                     break;
             }
         }
+        
         return result;
     }
-    private ArrayList splitPatternIntoElements(string grokPattern)
+    private Dictionary<string, int> splitPatternIntoElements(string grokPattern)
     {
         int i = 0;
-        ArrayList result = new ArrayList();
+        var result = new Dictionary<string, int>();
         string[] patternColonNames = grokPattern.Split('%');        /// Problem: \% could be part of the string
         foreach (string patternColonName in patternColonNames)
         {
             string[] patternsAndNames = patternColonName.Split(":");    /// Ditto: \:
-            if (patternsAndNames.Length >= 2 )
-                result.Add(new patternName { pattern = patternsAndNames[0].TrimStart('{'), name = patternsAndNames[1].TrimEnd(' ','}'), index = i++ });
+            if (patternsAndNames.Length >= 2)
+            {
+                int closePos = patternsAndNames[1].IndexOf('}');
+                string name = patternsAndNames[1].Remove(closePos);
+                if (!result.ContainsKey(name))
+                    result.Add(name, i++);
+            }
+        }
+
+        foreach (var key in result.Keys)
+        {
+            Console.WriteLine("Key:"+ key + " is at " + result[key]);
         }
 
         return result;
     }
-    private int readLogFileToDatabase(FileInfo fileInformation, StreamWriter errorLogWriter, cliArgs args, Program p)
+    
+    private void reportToConsole(string message, GrokResult grkLogRes, Dictionary<string, int> grokPatternElements)
+    {
+        Console.WriteLine(message);
+        foreach (string elementName in grokPatternElements.Keys)
+        {
+            Console.WriteLine(elementName + ":\t" + grkLogRes[grokPatternElements[elementName]].Value.ToString());
+        }
+        Console.WriteLine();
+
+    }
+
+    private void reportToErrorLog(string message, StreamWriter errorLogWriter, GrokResult grkLogRes, Dictionary<string, int> grokPatternElements)
+    {
+        errorLogWriter.WriteLine(message);
+        foreach (string elementName in grokPatternElements.Keys)
+        {
+            errorLogWriter.WriteLine(elementName + ":\t" + grkLogRes[grokPatternElements[elementName]].Value.ToString());
+        }
+        errorLogWriter.WriteLine();
+
+    }
+    
+    private int readLogFile(FileInfo fileInformation, StreamWriter errorLogWriter, cliArgs args, Program p)
     {
         int insertCount = 0;
         var parseTime = new Stopwatch();
@@ -91,40 +126,39 @@ class Program
             var customPatterns = System.IO.File.OpenRead(args.customPatternFile);
             
             StreamReader logReader = fileInformation.OpenText();
-            var grkLogLine = new Grok(grokPattern, customPatterns); //e.g. "%{LOGTIME:Timestamp} %{LOGPROG:Prog}: %{LOGACTION:Action} %{LOGDOMAIN:Domain} %{LOGDIRECTION:Direction} %{LOGEOL:EndOfLine}"
-                                           //                                           0                 1                   2                   3                       4                   5                  
+            var grkLogLine = new Grok(grokPattern, customPatterns); 
+
             GrokResult grkLogRes;
             string logLine;
 
             while ((logLine = logReader.ReadLine()) != null)
             {
                 parseTime.Start();
-                grkLogRes = grkLogLine.Parse(logLine, 10000000);    // 10000000 is 1 sec in ticks
+                grkLogRes = grkLogLine.Parse(logLine, args.maxExecutionTimeInTicks);    
                 parseTime.Stop();
 
                 if (grkLogRes.Any())
                 {
+                    string message = "Parse time:" + parseTime.Elapsed.ToString() + " --- " + logLine;
                     if (args.verbosity >= 2)
                     {
-                        Console.WriteLine("Parse time:" + parseTime.Elapsed.ToString() + " --- " + logLine);
-                        foreach (patternName element in grokPatternElements)
-                        {
-                            Console.WriteLine(element.name + ":\t" + grkLogRes[element.index].Value.ToString());
-                        }
+                        reportToConsole(message, grkLogRes, grokPatternElements);
                     }
-                    errorLogWriter.WriteLine("Parse time:" + parseTime.Elapsed.ToString() + " --- " + logLine);
-                    foreach (patternName element in grokPatternElements)
-                    {
-                        errorLogWriter.WriteLine(element.name + ":\t" + grkLogRes[element.index].Value.ToString());
-                    }
-                    errorLogWriter.WriteLine();
+                    reportToErrorLog(message, errorLogWriter, grkLogRes, grokPatternElements);
                 }
                 else
                 {
-                    errorLogWriter.WriteLine("No Match Error:" + logLine);
+                    string reasonForError = "";
+                    if (parseTime.Elapsed > new TimeSpan(args.maxExecutionTimeInTicks))
+                        reasonForError = "Timeout Error:\t";
+                    else
+                        reasonForError = "No Match Error:\t";
+
+                    errorLogWriter.WriteLine(reasonForError + logLine);
+                    errorLogWriter.WriteLine();
                     if (args.verbosity >= 1)
                     {
-                        Console.WriteLine("No Match Error:" + logLine);
+                        Console.WriteLine(reasonForError + logLine);
                         Console.WriteLine();
                     }
                 }
@@ -154,8 +188,8 @@ class Program
         {
             using (var errorLogWriter = new StreamWriter(args.outputFile, false))
             {
-                FileInfo fileInformation = new FileInfo(args.dataFile);
-                insertCount = p.readLogFileToDatabase(fileInformation, errorLogWriter, args, p);
+                var fileInformation = new FileInfo(args.dataFile);
+                insertCount = p.readLogFile(fileInformation, errorLogWriter, args, p);
             }
         }
         Console.WriteLine("lines: " + insertCount.ToString());

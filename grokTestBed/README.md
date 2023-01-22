@@ -1,5 +1,5 @@
 ﻿
-Switches now control input files and the output destination:
+Switches:
 
 -f \<dataFile\> (default: ./grokTest)
 
@@ -9,10 +9,15 @@ Switches now control input files and the output destination:
 
 -o \<output file\> (default: ./outputFile.txt)
 
+-t \<maximum execution time in ticks\> (default: 10000000 (i.e. one second))
+
 
 Verbosity to the Console can be controlled using the -vx switch:
+
 -v0: output goes to the output file only
+
 -v1: all output goes to the output file and only errors to the console
+
 -v2: all output goes to both output file and console
 
 Warning: If there are \\{ \\} \\: or \\% characters in the top level pattern this will screw up the output.
