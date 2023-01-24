@@ -2,7 +2,7 @@
   "profiles": {
     "grokTestBed": {
       "commandName": "Project",
-      "commandLineArgs": "-v1 "
+      "commandLineArgs": "-v1 -p matchPattern-3Actions.txt"
     }
   }
 }
